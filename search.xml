@@ -8,11 +8,42 @@
 <h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><p>npm init -y<br>npm install jest –save-dev (jest 只需要在開發環境)<br><img src="/blog/2022/10/20/jest-quick-start/version.jpg"><br>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/error.jpg"></p>
 <p>接下來切換 node 版本 14.15.0</p>
 <h2 id="cmd-1"><a href="#cmd-1" class="headerlink" title="cmd:"></a>cmd:</h2><p>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/run.jpg"></p>
-<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#106;&#x65;&#115;&#116;&#x40;&#x32;&#54;&#46;&#54;&#46;&#x33;">&#106;&#x65;&#115;&#116;&#x40;&#x32;&#54;&#46;&#54;&#46;&#x33;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#106;&#101;&#115;&#x74;&#x40;&#50;&#54;&#46;&#54;&#46;&#x33;">&#106;&#101;&#115;&#x74;&#x40;&#50;&#54;&#46;&#54;&#46;&#x33;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
 <h2 id="以上菜鳥發傻記-第一回-結束"><a href="#以上菜鳥發傻記-第一回-結束" class="headerlink" title="以上菜鳥發傻記 第一回 結束"></a>以上菜鳥發傻記 第一回 結束</h2><h4 id="參考"><a href="#參考" class="headerlink" title="參考:"></a>參考:</h4><p><a href="https://jestjs.io/">https://jestjs.io/</a><br><a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
 ]]></content>
       <tags>
         <tag>jest, newbie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初識 JWT</title>
+    <url>/blog/2022/11/16/%E5%88%9D%E8%AD%98-JWT/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因為我竟然不認識 JWT 是甚麼東西<br>所以有了這一篇紀錄, 繼續養成紀錄習慣</p>
+<h2 id="初識-JWT"><a href="#初識-JWT" class="headerlink" title="初識 JWT"></a>初識 JWT</h2><blockquote>
+<p>JWT 重點不在將資料隱藏, 而是確保發出的憑證, 是否有被竄改</p>
+</blockquote>
+<h3 id="JWT-JSON-Web-Tokens-其實就是一種-Token-的形式"><a href="#JWT-JSON-Web-Tokens-其實就是一種-Token-的形式" class="headerlink" title="JWT (JSON Web Tokens) , 其實就是一種 Token 的形式"></a>JWT (JSON Web Tokens) , 其實就是一種 Token 的形式</h3><h4 id="規範參考"><a href="#規範參考" class="headerlink" title="規範參考"></a>規範參考</h4><ol>
+<li>JWS : JSON Web Signature         RFC 7515      定義製作有”簽章的”</li>
+<li>JWE :  JSON Web Encryption       RFC 7516      定義”內容加密”</li>
+<li>JWK : JSON Web Key               RFC 7517      金鑰的格式與演算</li>
+<li>JWA : JSON Web Algorithms        RFC 7518      金鑰的格式與演算</li>
+<li>JWT : JSON Web Tokens            RFC 7519      定義 Header , Payload 與協定的相關規範<br>可以說 JWT 屬於規範, 而 JWS 與 JWE 像是實作</li>
+</ol>
+<blockquote>
+<p>目前接觸到的情況, 大部分說 JWT 指的就是 JWS</p>
+</blockquote>
+<h3 id="JWT-格式"><a href="#JWT-格式" class="headerlink" title="JWT 格式"></a>JWT 格式</h3><p>Header:<br>{<br>    “alg” : 演算法, 協定也有訂出適合的演算法  JWS (Section 3.1) , JWE(Section 4.1)<br>    “typ” : “JWT” 通常都是 JWT<br>}<br>JWS Payload:(RFC 7519 有制定格式如下, 但也可以自組)<br>{<br>    “iss” : 發行方<br>    “sub” : 表示夾帶的唯一識別訊息<br>    “aud” : 預期接收者<br>    “exp” : 到期時間<br>    “nbf” : 生效時間<br>    “iat” : 發行時間<br>    “jti” : 唯一識別的 JWT ID<br>}<br>JWS Signature:<br>Signature &#x3D;  演算法 ( secret key, ((Base64(header) + Base64(payload))</p>
+<h4 id="JWE-格式-想了解詳細再查"><a href="#JWE-格式-想了解詳細再查" class="headerlink" title="JWE 格式(想了解詳細再查)"></a>JWE 格式(想了解詳細再查)</h4><p>JWE:{<br>    Header<br>    Encrypted Key<br>    Initialization Vector(IV)<br>    Ciphertext<br>    Authentication Tag<br>}</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>基本上就是透過演算法(參考上述的alg), 數位簽章式的驗證, 資料被竄改</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><h3 id="規範中-token-放在-Header-進行傳遞"><a href="#規範中-token-放在-Header-進行傳遞" class="headerlink" title="規範中, token 放在 Header 進行傳遞"></a>規範中, token 放在 Header 進行傳遞</h3><blockquote>
+<p>Auth header : bearer [token]<br>關於 bearer 需要參考規範 RFC 6750 而且需要 TLS 環境</p>
+</blockquote>
+<h3 id="機密或敏感資料不要放-payload"><a href="#機密或敏感資料不要放-payload" class="headerlink" title="機密或敏感資料不要放 payload"></a>機密或敏感資料不要放 payload</h3><blockquote>
+<p>但是實務上要不要跟著規範走…..就看人XD</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>JWT, newbie</tag>
       </tags>
   </entry>
 </search>
