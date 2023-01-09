@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ed2bff;
+  background: #df405b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1302,7 +1302,7 @@ pre .javascript .function {
 }
 .sidebar-toggle {
   background: #222;
-  bottom: 45px;
+  bottom: 60px;
   cursor: pointer;
   height: 14px;
   left: 30px;
