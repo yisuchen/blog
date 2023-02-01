@@ -29,21 +29,21 @@
 
   gtag('config', 'G-XKS3YGSLM0');
 </script>
-  <meta name="description" content="asp .net mvc 後端驗證(ModelState)">
+  <meta name="description" content="當我使用 nvm 切換 node 高版本並 npm install something...時">
 <meta property="og:type" content="article">
-<meta property="og:title" content="asp.net mvc model validate">
-<meta property="og:url" content="https://yisuchen.github.io/blog/2023/01/07/asp-net-mvc-model-validate/index.html">
+<meta property="og:title" content="當 npm install 時 NPM ERR">
+<meta property="og:url" content="https://yisuchen.github.io/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/index.html">
 <meta property="og:site_name" content="隨手筆記">
-<meta property="og:description" content="asp .net mvc 後端驗證(ModelState)">
+<meta property="og:description" content="當我使用 nvm 切換 node 高版本並 npm install something...時">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-07T09:45:38.000Z">
-<meta property="article:modified_time" content="2023-01-09T03:47:25.307Z">
+<meta property="article:published_time" content="2023-02-01T09:11:20.000Z">
+<meta property="article:modified_time" content="2023-02-01T09:25:20.957Z">
 <meta property="article:author" content="Yisu">
-<meta property="article:tag" content="c#">
-<meta property="article:tag" content="asp.net mvc (framework)">
+<meta property="article:tag" content="nvm">
+<meta property="article:tag" content="npm">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://yisuchen.github.io/blog/2023/01/07/asp-net-mvc-model-validate/">
+<link rel="canonical" href="https://yisuchen.github.io/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>asp.net mvc model validate | 隨手筆記</title>
+  <title>當 npm install 時 NPM ERR | 隨手筆記</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKS3YGSLM0"></script>
     <script>
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yisuchen.github.io/blog/2023/01/07/asp-net-mvc-model-validate/">
+    <link itemprop="mainEntityOfPage" href="https://yisuchen.github.io/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          asp.net mvc model validate
+          當 npm install 時 NPM ERR
         </h1>
 
         <div class="post-meta">
@@ -230,16 +230,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-01-07 17:45:38" itemprop="dateCreated datePublished" datetime="2023-01-07T17:45:38+08:00">2023-01-07</time>
+              <time title="Created: 2023-02-01 17:11:20 / Modified: 17:25:20" itemprop="dateCreated datePublished" datetime="2023-02-01T17:11:20+08:00">2023-02-01</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-09 11:47:25" itemprop="dateModified" datetime="2023-01-09T11:47:25+08:00">2023-01-09</time>
-              </span>
 
           
   
@@ -250,13 +244,13 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/blog/2023/01/07/asp-net-mvc-model-validate/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/07/asp-net-mvc-model-validate/" itemprop="commentCount"></span>
+    <a title="disqus" href="/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/02/01/當-npm-install-時-NPM-ERR/" itemprop="commentCount"></span>
     </a>
   </span>
   
   
-            <div class="post-description">asp .net mvc 後端驗證(ModelState)</div>
+            <div class="post-description">當我使用 nvm 切換 node 高版本並 npm install something...時</div>
 
         </div>
       </header>
@@ -267,102 +261,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>寫這篇的原因單純只是做一個紀錄, 避免未來忘記  </p>
-<p>只要你的系統有在使用, 很難避免的就是有人亂搞, 想要玩你的資料格式, 看能不能搞出甚麼東西來<br>也有可能彼此說好的格式突然改變了….等等等雜七雜八的狀況<br>這時需要做的就是資料驗證<br>不管在前後端, 資料驗證都是非常必要的一個動作<br>在此處只會提到 asp.net mvc (framework 4.5) 的 model validaate (後端驗證) (ModelState)</p>
-<h3 id="驗證的時機"><a href="#驗證的時機" class="headerlink" title="驗證的時機?"></a>驗證的時機?</h3><p>通常, Controller 是我們的第一關, 我們的系統層級通常不會只有 Controller 一層<br>所以如果能越早攔截到資料錯誤, 阻止程式往下一層級傳遞, 在我看來應該是件好事  </p>
-<p>而資料傳遞時, 通常我們在 Controller Action 可以定義參數, 或者是建一個 model<br>讓　.net 來替我們 Model Binding<br>如果是建一個 model , 那我們方便的地方就很多了<br>建立好需要的屬性之後, 可以利用內建的 Attribute 來對資料驗證<br>如下 [Required] 就是利用內建屬性來綁定</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
 <blockquote>
+<p>npm ERR! Unexpected token ‘.’</p>
 </blockquote>
-<pre><code>public class AccountTest
-&#123;
-    // 帳號
-    [Required]
-    public string Account &#123; get; set; &#125;
-
-    // 密碼
-    [Required]
-    public string Password &#123; get; set; &#125;
-&#125;
-</code></pre>
-<p>其他能綁定的條件, 網路上很多, 而且一定寫得比我好, 我就不亂寫出來傷眼睛了</p>
-<h3 id="自訂驗證"><a href="#自訂驗證" class="headerlink" title="自訂驗證"></a>自訂驗證</h3><p>在製作的 Model裡 可以繼承並實作 IValidatableObject 介面  </p>
-<blockquote>
-<p>只有一個方法需要實作</p>
-</blockquote>
-<pre><code>// model
-public class AccountTest : IValidatableObject
-&#123;
-    // 帳號
-    [Required]
-    public string Account &#123; get; set; &#125;
-
-    // 密碼
-    [Required]
-    public string Password &#123; get; set; &#125;
-
-    public IEnumerable&lt;ValidationResult&gt; Validate(ValidationContext validationContext)
-    &#123;
-        // todo : 要驗證的邏輯  
-        // 如果想要針對某個欄位驗證, 或是也想自訂自己的錯誤訊息 ex:
-        // return new ValidationResult(&quot;測試使用&quot;, new[] &#123; nameof(Account) &#125;);
-        // &quot;測試使用&quot;就是自訂的錯誤訊息
-        // 後方 nameof(指定欄位屬性做驗證)
-    &#125;
-&#125;
-
-
-// controller
-public JsonResult LoginTest(AccountTest model)&#123;
-    if (!ModelState.IsValid)
-    &#123;
-        // 我們可以從 ModelState.Values 項目中 where 出 error 的部分自組錯誤訊息回傳給前端
-        //ex1
-        var errorMsg = (
-                from modelState in ViewData.ModelState.Values
-                from error in modelState.Errors
-                select error.ErrorMessage
-            ).ToList();
-                
-        return Json(new &#123; success = false, message = errorMsg &#125;);
-    &#125;
-    // todo : do something...
-&#125;
-</code></pre>
-<h3 id="簡化"><a href="#簡化" class="headerlink" title="簡化?"></a>簡化?</h3><p>每次如果 Controller 都要這樣取 errMsg 實在有點煩, 而且重複的 code 會變得非常多<br>這時候, 參考文章<br><a target="_blank" rel="noopener" href="https://blog.miniasp.com/post/2016/03/14/ASPNET-MVC-Developer-Note-Part-28-Understanding-ModelState">保哥ASP.NET MVC 開發心得分享 (28)：深入了解 ModelState 內部細節</a></p>
-<p>ModelState 是在 ViewData 中取得的</p>
-<blockquote>
-<p>額外補充, ViewBag 也是由 ViewData 衍伸出, 但彼此間不共享資料  </p>
-</blockquote>
-<p>所以可以另外擴充一個方法</p>
-<blockquote>
-</blockquote>
-<pre><code>// extend
-public static class ModelStateExtensions
-&#123;
-    public static string GetModelStateErrorMessage(this ViewDataDictionary viewData)
-    &#123;
-        // 取得第一個 error message
-        // 想要不同方式, 另外調整
-        return (
-            from m in viewData.ModelState.Values
-            from e in m.Errors
-            where !string.IsNullOrEmpty(e.ErrorMessage)
-            select e.ErrorMessage
-        ).FirstOrDefault();
-    &#125;
-&#125;
-</code></pre>
-<p>如此一來, 原本的 Controller 便可以改為</p>
-<pre><code>// controller
-public JsonResult LoginTest(AccountTest model)&#123;
-    if (!ModelState.IsValid)
-    &#123;                   
-        return Json(new &#123; success = false, message = ViewData.GetModelStateErrorMessage() &#125;);
-    &#125;
-    // todo : do something...
-&#125;
-</code></pre>
-<p>以上…基本上做一個簡單紀錄, 有錯誤也請麻煩指正, 感謝</p>
+<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
+<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
+<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
+<p>以上…原先 npm install something…正常安裝使用中….</p>
 
     </div>
 
@@ -372,8 +280,8 @@ public JsonResult LoginTest(AccountTest model)&#123;
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/c/" rel="tag"># c#</a>
-              <a href="/blog/tags/asp-net-mvc-framework/" rel="tag"># asp.net mvc (framework)</a>
+              <a href="/blog/tags/nvm/" rel="tag"># nvm</a>
+              <a href="/blog/tags/npm/" rel="tag"># npm</a>
           </div>
 
         
@@ -382,13 +290,10 @@ public JsonResult LoginTest(AccountTest model)&#123;
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2022/11/16/%E5%88%9D%E8%AD%98-JWT/" rel="prev" title="初識 JWT">
-      <i class="fa fa-chevron-left"></i> 初識 JWT
+    <a href="/blog/2023/01/07/asp-net-mvc-model-validate/" rel="prev" title="asp.net mvc model validate">
+      <i class="fa fa-chevron-left"></i> asp.net mvc model validate
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/" rel="next" title="當 npm install 時 NPM ERR">
-      當 npm install 時 NPM ERR <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -456,7 +361,7 @@ public JsonResult LoginTest(AccountTest model)&#123;
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A9%97%E8%AD%89%E7%9A%84%E6%99%82%E6%A9%9F"><span class="nav-number">1.1.</span> <span class="nav-text">驗證的時機?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E9%A9%97%E8%AD%89"><span class="nav-number">1.2.</span> <span class="nav-text">自訂驗證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%A1%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">簡化?</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E6%9C%80%E6%96%B0-nvm-for-windows-1-1-10"><span class="nav-number">3.</span> <span class="nav-text">下載最新 nvm for windows 1.1.10</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -589,9 +494,9 @@ public JsonResult LoginTest(AccountTest model)&#123;
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://yisuchen.github.io/blog/2023/01/07/asp-net-mvc-model-validate/";
-    this.page.identifier = "2023/01/07/asp-net-mvc-model-validate/";
-    this.page.title = "asp.net mvc model validate";
+    this.page.url = "https://yisuchen.github.io/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/";
+    this.page.identifier = "2023/02/01/當-npm-install-時-NPM-ERR/";
+    this.page.title = "當 npm install 時 NPM ERR";
     this.language = "zh_TW"; // Disqus 顯示語言
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
