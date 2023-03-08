@@ -8,7 +8,7 @@
 <h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><p>npm init -y<br>npm install jest –save-dev (jest 只需要在開發環境)<br><img src="/blog/2022/10/20/jest-quick-start/version.jpg"><br>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/error.jpg"></p>
 <p>接下來切換 node 版本 14.15.0</p>
 <h2 id="cmd-1"><a href="#cmd-1" class="headerlink" title="cmd:"></a>cmd:</h2><p>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/run.jpg"></p>
-<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#x6a;&#x65;&#115;&#x74;&#x40;&#x32;&#x36;&#46;&#x36;&#x2e;&#51;">&#x6a;&#x65;&#115;&#x74;&#x40;&#x32;&#x36;&#46;&#x36;&#x2e;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#106;&#101;&#115;&#x74;&#64;&#x32;&#54;&#x2e;&#x36;&#46;&#51;">&#106;&#101;&#115;&#x74;&#64;&#x32;&#54;&#x2e;&#x36;&#46;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
 <h2 id="以上菜鳥發傻記-第一回-結束"><a href="#以上菜鳥發傻記-第一回-結束" class="headerlink" title="以上菜鳥發傻記 第一回 結束"></a>以上菜鳥發傻記 第一回 結束</h2><h4 id="參考"><a href="#參考" class="headerlink" title="參考:"></a>參考:</h4><p><a href="https://jestjs.io/">https://jestjs.io/</a><br><a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
 ]]></content>
       <categories>
@@ -55,29 +55,6 @@
         <tag>JWT</tag>
         <tag>newbie</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>叮嚀自己的話</title>
-    <url>/blog/2023/02/01/%E5%8F%AE%E5%9A%80%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A9%B1/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>為什麼會想寫 blog?<br>起因是覺得同事, 將自己所遇到的困難點, 或者學習到新的技術<br>分享在他自己的 blog 上, 覺得太棒了吧, 造福世人!!  </p>
-<h2 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h2><p>寫 blog 不用賦予自己這麼遠大的目標<br>把事情簡單化, 不用想著你的 blog 有沒有人看, 整件事情就變得單純很多<br>你只要關注在<br>將遇到的困難, 解決方式記錄下來<br>在紀錄的同時, 就好比寫日記一般, 又再一次複習今天的歷程與心情<br>又再次加深一次印象, 未來遇到困難點的時候, 會發現  </p>
-<p>!!咦!!這個問題我遇過, 我知道怎麼解決<br>或者是<br>!!咦!!這個問題我遇過, 但我忘記了, 我應該有記錄在我的blog上</p>
-<p>一次次的重複複習, 都是一次次的內化思考, 或是加深印象  </p>
-<h2 id="那遇到問題與解決方案-別人寫過呢-我還要寫嗎"><a href="#那遇到問題與解決方案-別人寫過呢-我還要寫嗎" class="headerlink" title="那遇到問題與解決方案, 別人寫過呢?? 我還要寫嗎??"></a>那遇到問題與解決方案, 別人寫過呢?? 我還要寫嗎??</h2><p>其實這一句, 是同事某天問我的  </p>
-<blockquote>
-<p>你覺得解決一個問題點之後, 該不該寫 blog?<br>當時我回答, 相關的解決方法人家都已經寫了, 我寫的也沒比較好, 應該不會寫了吧<br>後來的開導像是當頭棒喝一樣,　最初建立這個隨手筆記, 想的也是記錄問題, 隨意分享<br>如果說別人寫過就不寫, 當初乾脆就不要開始  </p>
-</blockquote>
-<p>這是心魔!!! 其實這一點也不重要<br>回歸上面講的, 寫 blog 的原因與動機在於對自己的紀錄與內化加深印象<br>那別人寫過…..我當然可以再寫啊!!<br>別人的文章加深的是他的印象, 我在寫一次, 是加深自己的印象<br>以及再次思考哪裡不瞭解、練習自己的表達能力<br>當然…<br>如果參考別人的文章, 需要引出出處, 也是對人的尊重</p>
-<h2 id="這篇的最後"><a href="#這篇的最後" class="headerlink" title="這篇的最後"></a>這篇的最後</h2><p>推薦文章 </p>
-<blockquote>
-<p><a href="https://dotblogs.com.tw/hatelove/2017/03/26/why-engineers-should-keep-blogging">91 - 我為什麼鼓勵工程師寫 blog</a>  </p>
-</blockquote>
-<p>或許我目前還沒有訂定甚麼目標…但是就先這樣做吧<br>反正做就對了<br>當有行動, 才會有修正的機會  </p>
-]]></content>
-      <categories>
-        <category>newbie</category>
-        <category>to myself</category>
-      </categories>
   </entry>
   <entry>
     <title>asp.net mvc model validate</title>
@@ -188,6 +165,51 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </tags>
   </entry>
   <entry>
+    <title>叮嚀自己的話</title>
+    <url>/blog/2023/02/01/%E5%8F%AE%E5%9A%80%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A9%B1/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>為什麼會想寫 blog?<br>起因是覺得同事, 將自己所遇到的困難點, 或者學習到新的技術<br>分享在他自己的 blog 上, 覺得太棒了吧, 造福世人!!  </p>
+<h2 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h2><p>寫 blog 不用賦予自己這麼遠大的目標<br>把事情簡單化, 不用想著你的 blog 有沒有人看, 整件事情就變得單純很多<br>你只要關注在<br>將遇到的困難, 解決方式記錄下來<br>在紀錄的同時, 就好比寫日記一般, 又再一次複習今天的歷程與心情<br>又再次加深一次印象, 未來遇到困難點的時候, 會發現  </p>
+<p>!!咦!!這個問題我遇過, 我知道怎麼解決<br>或者是<br>!!咦!!這個問題我遇過, 但我忘記了, 我應該有記錄在我的blog上</p>
+<p>一次次的重複複習, 都是一次次的內化思考, 或是加深印象  </p>
+<h2 id="那遇到問題與解決方案-別人寫過呢-我還要寫嗎"><a href="#那遇到問題與解決方案-別人寫過呢-我還要寫嗎" class="headerlink" title="那遇到問題與解決方案, 別人寫過呢?? 我還要寫嗎??"></a>那遇到問題與解決方案, 別人寫過呢?? 我還要寫嗎??</h2><p>其實這一句, 是同事某天問我的  </p>
+<blockquote>
+<p>你覺得解決一個問題點之後, 該不該寫 blog?<br>當時我回答, 相關的解決方法人家都已經寫了, 我寫的也沒比較好, 應該不會寫了吧<br>後來的開導像是當頭棒喝一樣,　最初建立這個隨手筆記, 想的也是記錄問題, 隨意分享<br>如果說別人寫過就不寫, 當初乾脆就不要開始  </p>
+</blockquote>
+<p>這是心魔!!! 其實這一點也不重要<br>回歸上面講的, 寫 blog 的原因與動機在於對自己的紀錄與內化加深印象<br>那別人寫過…..我當然可以再寫啊!!<br>別人的文章加深的是他的印象, 我在寫一次, 是加深自己的印象<br>以及再次思考哪裡不瞭解、練習自己的表達能力<br>當然…<br>如果參考別人的文章, 需要引出出處, 也是對人的尊重</p>
+<h2 id="這篇的最後"><a href="#這篇的最後" class="headerlink" title="這篇的最後"></a>這篇的最後</h2><p>推薦文章 </p>
+<blockquote>
+<p><a href="https://dotblogs.com.tw/hatelove/2017/03/26/why-engineers-should-keep-blogging">91 - 我為什麼鼓勵工程師寫 blog</a>  </p>
+</blockquote>
+<p>或許我目前還沒有訂定甚麼目標…但是就先這樣做吧<br>反正做就對了<br>當有行動, 才會有修正的機會  </p>
+]]></content>
+      <categories>
+        <category>newbie</category>
+        <category>to myself</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>當 npm install 時 NPM ERR</title>
+    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
+<blockquote>
+<p>npm ERR! Unexpected token ‘.’</p>
+</blockquote>
+<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
+<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
+<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
+<p>以上…原先 npm install something…正常安裝使用中….</p>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git LFS上傳大型檔案</title>
     <url>/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我有一份自己紀錄的檔案夾…當時並沒有使用 git<br>長年累積之下, 總會有某些檔案超過 git 上傳限制的狀況<br>紀錄一下我是怎麼解決的  </p>
@@ -218,28 +240,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
       <tags>
         <tag>git LFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>當 npm install 時 NPM ERR</title>
-    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
-<blockquote>
-<p>npm ERR! Unexpected token ‘.’</p>
-</blockquote>
-<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
-<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
-<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
-<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
-<p>以上…原先 npm install something…正常安裝使用中….</p>
-]]></content>
-      <categories>
-        <category>npm</category>
-      </categories>
-      <tags>
-        <tag>nvm</tag>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -292,6 +292,95 @@ public JsonResult LoginTest(AccountTest model)&#123;
 ]]></content>
       <categories>
         <category>docker</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LAB-NET7 Serilog 練習</title>
+    <url>/blog/2023/03/08/LAB-NET7-Serilog-%E7%B7%B4%E7%BF%92/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不管在開發上或是系統上線後, log 都佔據很重要的部分<br>這一篇僅會記錄 NET 7 練習使用 Serilog 的過程</p>
+<h2 id="NET-內建-Log-Provider"><a href="#NET-內建-Log-Provider" class="headerlink" title=".NET 內建 Log Provider"></a>.NET 內建 Log Provider</h2><p><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#bilp">內建的 Log Provider</a><br>.NET 也有內建一些 log 提供使用</p>
+<p>Program.cs</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 清除其他預設的 log provider</span></span><br><span class="line">builder.Logging.ClearProvider();</span><br><span class="line"><span class="comment">// 使用 console log provider</span></span><br><span class="line">builder.Logging.AddConsole();</span><br></pre></td></tr></table></figure>
+
+<p>即可使用  </p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HomeController</span> : <span class="title">BaseController</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> ILogger&lt;HomeController&gt; _log;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HomeController</span>(<span class="params">ILogger&lt;HomeController&gt; _log</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>._log = _log;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Hello</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        _log.LogCritical(<span class="string">&quot;Hello Word! log_instance Critical&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello!! This is Hello action...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</br>
+
+<h2 id="回到本篇重點-如何使用-Serilog"><a href="#回到本篇重點-如何使用-Serilog" class="headerlink" title="回到本篇重點, 如何使用 Serilog?"></a>回到本篇重點, 如何使用 Serilog?</h2><p>這邊以保哥的文章做學習<br><a href="https://blog.miniasp.com/post/2021/11/29/How-to-use-Serilog-with-NET-6">.NET 6.0 如何使用 Serilog 對應用程式事件進行結構化紀錄</a></p>
+<h3 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h3><ul>
+<li>Serilog</li>
+<li>Serilog.AspNetCore</li>
+<li>Serilog.Sinks.Console</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">這邊使用最簡單的 Console 做範例</span><br><span class="line">需要其他寫 log 方式的話, 可以再下載對應的 Sink,</span><br><span class="line">在做對應的配置, 即可使用</span><br><span class="line">例如:</span><br><span class="line">    如果有 Seq 服務的話, 下載</span><br><span class="line">    Serilog.Sinks.Seq</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>方式1<br>直接在 program.cs 做配置</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Log.Logger = <span class="keyword">new</span> LoggerConfiguration()</span><br><span class="line">    .MinimumLevel.Verbose()</span><br><span class="line">    .WriteTo.Console()</span><br><span class="line">    .WriteTo.File(<span class="string">&quot;logs/log-.txt&quot;</span>, rollingInterval: RollingInterval.Day)</span><br><span class="line">    .CreateLogger();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方式2<br>配置的屬性拉到 appsettings.json</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">appsettings.json</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;Serilog&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;MinimumLevel&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Default&quot;</span>: <span class="string">&quot;Information&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Override&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Microsoft.AspNetCore&quot;</span>: <span class="string">&quot;Warning&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;WriteTo&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;Name&quot;</span>: <span class="string">&quot;Console&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;Name&quot;</span>: <span class="string">&quot;File&quot;</span>,</span><br><span class="line">            <span class="string">&quot;Args&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;path&quot;</span>: <span class="string">&quot;./logs/log-.txt&quot;</span>,</span><br><span class="line">                <span class="string">&quot;rollingInterval&quot;</span>: <span class="string">&quot;Day&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>Program.cs 內即可縮短</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Log.Logger = <span class="keyword">new</span> LoggerConfiguration()</span><br><span class="line">    .ReadFrom.Configuration(builder.Configuration)</span><br><span class="line">    .CreateLogger();</span><br></pre></td></tr></table></figure>
+
+</br>
+
+<p>不管採用方式 1 or 2 or…<br>記得要 use</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 記得 Use</span></span><br><span class="line">builder.Host.UseSerilog();</span><br></pre></td></tr></table></figure>
+
+<p>完成上面的配置之後, 即完成…原先的 Controller 中 ILogger 並不需要替換<br>因為 Serilog 也用了 ILogger<br>詳細原理可以翻找<a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0#third-party-logging-providers">文件</a></p>
+<p><img src="/blog/2023/03/08/LAB-NET7-Serilog-%E7%B7%B4%E7%BF%92/1.png" alt="1"><br><img src="/blog/2023/03/08/LAB-NET7-Serilog-%E7%B7%B4%E7%BF%92/2.png" alt="2"></p>
+<h3 id="但是"><a href="#但是" class="headerlink" title="但是!!"></a>但是!!</h3><p>Serilog 為了考慮效能與降低寫紀錄時對應用程式的影響<br>寫入 log 時, 會先存到一個緩衝區(Queue)<br>之後才會真正寫入 log 儲存器(自定, 可能 seq or txt…等等等)<br>所以  .NET 應用程式關閉前, 必須要確保 log 都有紀錄完成且儲存<br>必須要包 try&#x2F;catch&#x2F;finally</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Try&#123;</span><br><span class="line">    <span class="comment">// 放置原本 Program.cs 的程式碼</span></span><br><span class="line">&#125;</span><br><span class="line">Catch&#123;</span><br><span class="line">    Log.Error(ex, <span class="string">&quot;紀錄未捕捉到的例外&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Finally&#123;</span><br><span class="line">    Log.CloseAndFlush();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</br>
+</br>
+
+<h3 id="如果想自製-logger-也很容易處理"><a href="#如果想自製-logger-也很容易處理" class="headerlink" title="如果想自製 logger?? 也很容易處理"></a>如果想自製 logger?? 也很容易處理</h3><p>建立定義的 interface (未來拓展或抽換方便)</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IMyLogger</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Task <span class="title">CallApi</span>(<span class="params">Uri uri, HttpContent httpContent</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Task <span class="title">ReceivedEvents</span>(<span class="params"><span class="built_in">byte</span>[] eventData</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Task <span class="title">ForTest</span>(<span class="params"><span class="built_in">string</span> log</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建立 MyLogger</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyLogger</span> : <span class="title">IMyLogger</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> ILogger&lt;MyLogger&gt; _logger;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyLogger</span>(<span class="params">ILogger&lt;MyLogger&gt; logger</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _logger = logger;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">CallApi</span>(<span class="params">Uri uri, HttpContent httpContent</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _logger.LogWarning(<span class="string">$&quot;From My Logger uri: <span class="subst">&#123;uri&#125;</span>, Content: <span class="subst">&#123;httpContent&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">ReceivedEvents</span>(<span class="params"><span class="built_in">byte</span>[] eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _logger.LogWarning(<span class="string">$&quot;From My Logger <span class="subst">&#123;eventData&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">ForTest</span>(<span class="params"><span class="built_in">string</span> log</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _logger.LogWarning(log);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>HomeController 替換</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HomeController</span> : <span class="title">Controller</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IMyLogger_myLogger;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HomeController</span>(<span class="params">IMyLogger mylog</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _myLogger = mylog;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Index</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> _myLogger.ForTest(<span class="string">&quot;For Test Only&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> Ok();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也別忘記註冊服務  </p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">builder.Services.AddSingleton&lt;IMyLogger, MyLogger&gt;();</span><br></pre></td></tr></table></figure>
+
+<h3 id="以上…非常容易建立-Serilog-服務以及抽換想使用的-logger"><a href="#以上…非常容易建立-Serilog-服務以及抽換想使用的-logger" class="headerlink" title="以上…非常容易建立 Serilog 服務以及抽換想使用的 logger"></a>以上…非常容易建立 Serilog 服務以及抽換想使用的 logger</h3></br>
+
+<h2 id="額外補充"><a href="#額外補充" class="headerlink" title="額外補充"></a>額外補充</h2><p>HttpClient 加入 DelegatingHandler, 並注入 logger<br>即可發送 Request 的時候, 也寫入 log</p>
+<p>製作 handler</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HttpDelegatingHandler</span> : <span class="title">DelegatingHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> IMyLogger _logger;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HttpDelegatingHandler</span>(<span class="params">IMyLogger logger</span>) : <span class="title">this</span>(<span class="params">logger, <span class="keyword">new</span> HttpClientHandler(</span>))</span></span><br><span class="line">    &#123;</span><br><span class="line">        _logger = logger;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">internal</span> <span class="title">HttpDelegatingHandler</span>(<span class="params">IMyLogger logger, HttpMessageHandler handler</span>) : <span class="title">base</span>(<span class="params">handler</span>)</span></span><br><span class="line">        =&gt; _logger = logger;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">async</span> Task&lt;HttpResponseMessage&gt; <span class="title">SendAsync</span>(<span class="params">HttpRequestMessage request, CancellationToken cancellationToken</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">await</span> <span class="keyword">base</span>.SendAsync(request, cancellationToken).ConfigureAwait(<span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">await</span> _logger.CallApi(request.RequestUri, request.Content).ConfigureAwait(<span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建立 httpClientFactory, 並將 handler 注入給 HttpClient</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HttpClientFactory</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HttpClient <span class="title">CreateHttpClient</span>(<span class="params">IMyLogger logger</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> handler = <span class="keyword">new</span> HttpDelegatingHandler(logger);</span><br><span class="line">        <span class="keyword">var</span> client = <span class="keyword">new</span> HttpClient(handler)</span><br><span class="line">        &#123;</span><br><span class="line">            BaseAddress = <span class="keyword">new</span> Uri(<span class="string">&quot;https://www.google.com.tw&quot;</span>)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如此一來只要有 SendAsync , 都會執行 CallApi 這個紀錄方法  </p>
+</br>
+</br>
+
+<h2 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料"></a>補充資料</h2><p>.NET LogLevel - 7 個層級<br><img src="/blog/2023/03/08/LAB-NET7-Serilog-%E7%B7%B4%E7%BF%92/loglevel.png" alt="logLevel">  </p>
+<p>Serilog LogLevel - 6 個層級(並無 None)  </p>
+<p><a href="https://github.com/serilog/serilog/blob/dev/src/Serilog/Events/LogEventLevel.cs">參考</a></p>
+<p>Verbose &#x3D; 0,   (等同 .NET Trace) (最冗長)</p>
+<p>Debug &#x3D; 1, (同 .NET)</p>
+<p>Information &#x3D; 2,  (同 .NET)</p>
+<p>Warning &#x3D; 3,  (同 .NET)</p>
+<p>Error &#x3D; 4,  (同 .NET)</p>
+<p>Fatal &#x3D; 5  (等同 .NET Critical ) (嚴重錯誤)</p>
+</br>
+</br>
+
+<h2 id="此次-範例程式碼"><a href="#此次-範例程式碼" class="headerlink" title="此次 範例程式碼"></a>此次 <a href="https://github.com/lab-source/lab_NET7_Serilog">範例程式碼</a></h2>]]></content>
+      <categories>
+        <category>LAB</category>
       </categories>
   </entry>
 </search>
