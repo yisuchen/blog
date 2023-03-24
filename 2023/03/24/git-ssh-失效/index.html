@@ -29,19 +29,19 @@
 
   gtag('config', 'G-XKS3YGSLM0');
 </script>
-  <meta name="description" content="要不要來一杯咖啡?">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分類">
-<meta property="og:url" content="https://yisuchen.github.io/blog/categories/index.html">
+  <meta name="description" content="ssh key 失效..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git ssh 失效">
+<meta property="og:url" content="https://yisuchen.github.io/blog/2023/03/24/git-ssh-%E5%A4%B1%E6%95%88/index.html">
 <meta property="og:site_name" content="隨手筆記">
-<meta property="og:description" content="要不要來一杯咖啡?">
+<meta property="og:description" content="ssh key 失效..">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-11-16T09:28:23.000Z">
-<meta property="article:modified_time" content="2022-11-16T09:50:52.057Z">
+<meta property="article:published_time" content="2023-03-24T06:32:21.000Z">
+<meta property="article:modified_time" content="2023-03-24T14:02:43.981Z">
 <meta property="article:author" content="Yisu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://yisuchen.github.io/blog/categories/">
+<link rel="canonical" href="https://yisuchen.github.io/blog/2023/03/24/git-ssh-%E5%A4%B1%E6%95%88/">
 
 
 <script id="page-configurations">
@@ -49,13 +49,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>文章分類 | 隨手筆記
-</title>
+  <title>git ssh 失效 | 隨手筆記</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKS3YGSLM0"></script>
     <script>
@@ -190,56 +189,134 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-TW">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://yisuchen.github.io/blog/2023/03/24/git-ssh-%E5%A4%B1%E6%95%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Yisu">
+      <meta itemprop="description" content="要不要來一杯咖啡?">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="隨手筆記">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git ssh 失效
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">文章分類
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
 
-<div class="post-meta">
+              <time title="創建時間：2023-03-24 14:32:21 / 修改時間：22:02:43" itemprop="dateCreated datePublished" datetime="2023-03-24T14:32:21+08:00">2023-03-24</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/2023/03/24/git-ssh-%E5%A4%B1%E6%95%88/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/03/24/git-ssh-失效/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">ssh key 失效..</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本我正在使用 git commit, 正開開心心的準備 push to github 時, 突然噴了以下的 error</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</span><br><span class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</span><br><span class="line">It is also possible that a host key has just been changed.</span><br><span class="line">The fingerprint for the RSA key sent by the remote host is</span><br><span class="line">SHA256:uNiVztksCsDhcc0u9e8Bxxxxxxxxxxxxj3tD2s.</span><br><span class="line">Please contact your system administrator.</span><br><span class="line">Add correct host key in /c/Users/yisu.xxxx/.ssh/known_hosts to get rid of this message.</span><br><span class="line">Offending RSA key in /c/Users/yisu.xxxx/.ssh/known_hosts:1</span><br><span class="line">Host key for [ssh.github.com]:443 has changed and you have requested strict checking.</span><br><span class="line">Host key verification failed.</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+
+<h2 id="其實問題很簡單"><a href="#其實問題很簡單" class="headerlink" title="其實問題很簡單"></a>其實問題很簡單</h2><p>就是 ssh key 出問題了, 在 error 說明內也寫得很清楚<br>Host key verification failed.<br>包含 ssh_key 檔案<br>出問題的在第幾行</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><ol>
+<li>刪除錯誤(舊的)的 key</li>
+<li>重新產生一組新的 ssh_key, 記得添加到 Github 帳戶內<br>(key 有 2 把, 私key , 公key)</li>
+</ol>
+<h2 id="補充筆記"><a href="#補充筆記" class="headerlink" title="補充筆記"></a>補充筆記</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 第一次使用或重新安裝後, 記得設置</span><br><span class="line">git config --global user.name &quot;test&quot;</span><br><span class="line">git config --global user.email &quot;test@gmail.com&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 查看是否有產生 ssh key , 有的話會有這個資料夾</span><br><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 驗證 ssh key 是否正確設置</span><br><span class="line">// 正確的話, 會收到</span><br><span class="line">// Hi yourname! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 生成新的 ssh_key , -b 4096 代表 key 的長度, 預設是 2048</span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>完成後, 在資料夾內會產生 3 個檔案</p>
+<ol>
+<li>id_rsa</li>
+<li>id_rsa.pub</li>
+<li>known_hosts</li>
+</ol>
+<p>再將 id_rea.pub 設置到你需要的地方即可<br>e.g.  </p>
+<ol>
+<li>gitlab - user setting - ssh keys  </li>
+<li>gitgub - setting - ssh keys and gpg keys  </li>
+<li>sourcetree - setting - ssh key</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2023/03/08/LAB-NET7-Serilog-%E7%B7%B4%E7%BF%92/" rel="prev" title="LAB-NET7 Serilog 練習">
+      <i class="fa fa-chevron-left"></i> LAB-NET7 Serilog 練習
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共有 7 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/LAB/">LAB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/asp-net-mvc/">asp.net mvc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/github/">github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/newbie/">newbie</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/newbie/to-myself/">to myself</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
 
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -287,6 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E5%AF%A6%E5%95%8F%E9%A1%8C%E5%BE%88%E7%B0%A1%E5%96%AE"><span class="nav-number">2.</span> <span class="nav-text">其實問題很簡單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%9C%E5%85%85%E7%AD%86%E8%A8%98"><span class="nav-number">4.</span> <span class="nav-text">補充筆記</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -414,6 +492,27 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://yisuchen.github.io/blog/2023/03/24/git-ssh-%E5%A4%B1%E6%95%88/";
+    this.page.identifier = "2023/03/24/git-ssh-失效/";
+    this.page.title = "git ssh 失效";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-yisuchen-github-io-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
