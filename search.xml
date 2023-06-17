@@ -8,7 +8,7 @@
 <h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><p>npm init -y<br>npm install jest –save-dev (jest 只需要在開發環境)<br><img src="/blog/2022/10/20/jest-quick-start/version.jpg"><br>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/error.jpg"></p>
 <p>接下來切換 node 版本 14.15.0</p>
 <h2 id="cmd-1"><a href="#cmd-1" class="headerlink" title="cmd:"></a>cmd:</h2><p>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/run.jpg"></p>
-<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#106;&#x65;&#115;&#116;&#64;&#x32;&#x36;&#x2e;&#x36;&#x2e;&#51;">&#106;&#x65;&#115;&#116;&#64;&#x32;&#x36;&#x2e;&#x36;&#x2e;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#106;&#101;&#115;&#116;&#x40;&#x32;&#x36;&#x2e;&#54;&#x2e;&#51;">&#106;&#101;&#115;&#116;&#x40;&#x32;&#x36;&#x2e;&#54;&#x2e;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
 <h2 id="以上菜鳥發傻記-第一回-結束"><a href="#以上菜鳥發傻記-第一回-結束" class="headerlink" title="以上菜鳥發傻記 第一回 結束"></a>以上菜鳥發傻記 第一回 結束</h2><h4 id="參考"><a href="#參考" class="headerlink" title="參考:"></a>參考:</h4><p><a href="https://jestjs.io/">https://jestjs.io/</a><br><a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
 ]]></content>
       <categories>
@@ -188,6 +188,28 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
   </entry>
   <entry>
+    <title>當 npm install 時 NPM ERR</title>
+    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
+<blockquote>
+<p>npm ERR! Unexpected token ‘.’</p>
+</blockquote>
+<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
+<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
+<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
+<p>以上…原先 npm install something…正常安裝使用中….</p>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git LFS上傳大型檔案</title>
     <url>/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我有一份自己紀錄的檔案夾…當時並沒有使用 git<br>長年累積之下, 總會有某些檔案超過 git 上傳限制的狀況<br>紀錄一下我是怎麼解決的  </p>
@@ -218,28 +240,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>當 npm install 時 NPM ERR</title>
-    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
-<blockquote>
-<p>npm ERR! Unexpected token ‘.’</p>
-</blockquote>
-<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
-<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
-<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
-<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
-<p>以上…原先 npm install something…正常安裝使用中….</p>
-]]></content>
-      <categories>
-        <category>npm</category>
-      </categories>
-      <tags>
-        <tag>nvm</tag>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -384,28 +384,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
   </entry>
   <entry>
-    <title>設置本地端 gitignore (全域)</title>
-    <url>/blog/2023/03/24/%E8%A8%AD%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%AB%AF-gitignore/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各專案在使用 git 上, 通常都有一份 .gitignore 的檔案<br>忽略一些”不想”, 或是”不需要”被版本控制的檔案  </br></p>
-<p>但在團隊協作專案中, 每個人開發或是慣用工具都不同<br>也因為這些的不同, 會發現有些工具產生了一些奇奇怪怪的檔案<br>但不想汙染團隊的 .gitignore 又不想每次出現礙眼怎麼辦?  </br><br>(個人專案的話, 可以不用繼續往下看了, 反正加進 .gitignore 就對了)</p>
-<h2 id="設置全域-gitignore-對本機所有-git-有效"><a href="#設置全域-gitignore-對本機所有-git-有效" class="headerlink" title="設置全域 .gitignore (對本機所有 git 有效)"></a>設置全域 .gitignore (對本機所有 git 有效)</h2><ol>
-<li>先在你喜歡的路徑創建一個 .your_global_ignore_filename</li>
-<li>設置 git 全域忽略</li>
-<li>跟專案內的 .gitignore 一樣, 將想要忽略的路徑編寫在檔案中</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.excludesfile 你喜歡的路徑/.your_global_ignore_filename</span><br></pre></td></tr></table></figure>
-
-<p>灑花! 完成!</br></p>
-<p>這一篇很短沒錯. 但就是因為很短很簡單. 而且可能只會做一次的動作<br>所以就…必須忘記 才有這一篇, 順便有個紀錄以後可以查詢</p>
-<h2 id="其他有的沒的相關指令紀錄"><a href="#其他有的沒的相關指令紀錄" class="headerlink" title="其他有的沒的相關指令紀錄"></a>其他有的沒的相關指令紀錄</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查詢你設置全域忽略路徑</span><br><span class="line">git config --get core.excludesfile</span><br><span class="line"></span><br><span class="line">// 設定喜好的預設編輯器</span><br><span class="line">git config --global core.editor &quot;vim&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查看有關 git 設定過的配置</span><br><span class="line">git config --list</span><br><span class="line">--global        // 全域的配置</span><br><span class="line">--local         // 本地的配置</span><br><span class="line">--show-origin   // 顯示來源</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git ssh 失效</title>
     <url>/blog/2023/03/24/git-ssh-%E5%A4%B1%E6%95%88/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本我正在使用 git commit, 正開開心心的準備 push to github 時, 突然噴了以下的 error</p>
@@ -436,6 +414,28 @@ public JsonResult LoginTest(AccountTest model)&#123;
 <li>gitgub - setting - ssh keys and gpg keys  </li>
 <li>sourcetree - setting - ssh key</li>
 </ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>設置本地端 gitignore (全域)</title>
+    <url>/blog/2023/03/24/%E8%A8%AD%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%AB%AF-gitignore/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各專案在使用 git 上, 通常都有一份 .gitignore 的檔案<br>忽略一些”不想”, 或是”不需要”被版本控制的檔案  </br></p>
+<p>但在團隊協作專案中, 每個人開發或是慣用工具都不同<br>也因為這些的不同, 會發現有些工具產生了一些奇奇怪怪的檔案<br>但不想汙染團隊的 .gitignore 又不想每次出現礙眼怎麼辦?  </br><br>(個人專案的話, 可以不用繼續往下看了, 反正加進 .gitignore 就對了)</p>
+<h2 id="設置全域-gitignore-對本機所有-git-有效"><a href="#設置全域-gitignore-對本機所有-git-有效" class="headerlink" title="設置全域 .gitignore (對本機所有 git 有效)"></a>設置全域 .gitignore (對本機所有 git 有效)</h2><ol>
+<li>先在你喜歡的路徑創建一個 .your_global_ignore_filename</li>
+<li>設置 git 全域忽略</li>
+<li>跟專案內的 .gitignore 一樣, 將想要忽略的路徑編寫在檔案中</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.excludesfile 你喜歡的路徑/.your_global_ignore_filename</span><br></pre></td></tr></table></figure>
+
+<p>灑花! 完成!</br></p>
+<p>這一篇很短沒錯. 但就是因為很短很簡單. 而且可能只會做一次的動作<br>所以就…必須忘記 才有這一篇, 順便有個紀錄以後可以查詢</p>
+<h2 id="其他有的沒的相關指令紀錄"><a href="#其他有的沒的相關指令紀錄" class="headerlink" title="其他有的沒的相關指令紀錄"></a>其他有的沒的相關指令紀錄</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查詢你設置全域忽略路徑</span><br><span class="line">git config --get core.excludesfile</span><br><span class="line"></span><br><span class="line">// 設定喜好的預設編輯器</span><br><span class="line">git config --global core.editor &quot;vim&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查看有關 git 設定過的配置</span><br><span class="line">git config --list</span><br><span class="line">--global        // 全域的配置</span><br><span class="line">--local         // 本地的配置</span><br><span class="line">--show-origin   // 顯示來源</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>git</tag>
