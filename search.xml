@@ -8,7 +8,7 @@
 <h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><p>npm init -y<br>npm install jest –save-dev (jest 只需要在開發環境)<br><img src="/blog/2022/10/20/jest-quick-start/version.jpg"><br>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/error.jpg"></p>
 <p>接下來切換 node 版本 14.15.0</p>
 <h2 id="cmd-1"><a href="#cmd-1" class="headerlink" title="cmd:"></a>cmd:</h2><p>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/run.jpg"></p>
-<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#x6a;&#x65;&#x73;&#116;&#64;&#50;&#54;&#x2e;&#54;&#46;&#51;">&#x6a;&#x65;&#x73;&#116;&#64;&#50;&#54;&#x2e;&#54;&#46;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#x6a;&#101;&#x73;&#x74;&#x40;&#50;&#x36;&#x2e;&#54;&#46;&#51;">&#x6a;&#101;&#x73;&#x74;&#x40;&#50;&#x36;&#x2e;&#54;&#46;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
 <h2 id="以上菜鳥發傻記-第一回-結束"><a href="#以上菜鳥發傻記-第一回-結束" class="headerlink" title="以上菜鳥發傻記 第一回 結束"></a>以上菜鳥發傻記 第一回 結束</h2><h4 id="參考"><a href="#參考" class="headerlink" title="參考:"></a>參考:</h4><p><a href="https://jestjs.io/">https://jestjs.io/</a><br><a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
 ]]></content>
       <categories>
@@ -165,6 +165,28 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </tags>
   </entry>
   <entry>
+    <title>當 npm install 時 NPM ERR</title>
+    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
+<blockquote>
+<p>npm ERR! Unexpected token ‘.’</p>
+</blockquote>
+<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
+<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
+<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
+<p>以上…原先 npm install something…正常安裝使用中….</p>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>叮嚀自己的話</title>
     <url>/blog/2023/02/01/%E5%8F%AE%E5%9A%80%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A9%B1/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>為什麼會想寫 blog?<br>起因是覺得同事, 將自己所遇到的困難點, 或者學習到新的技術<br>分享在他自己的 blog 上, 覺得太棒了吧, 造福世人!!  </p>
@@ -188,25 +210,36 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
   </entry>
   <entry>
-    <title>當 npm install 時 NPM ERR</title>
-    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
-<blockquote>
-<p>npm ERR! Unexpected token ‘.’</p>
-</blockquote>
-<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
-<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
-<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
-<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
-<p>以上…原先 npm install something…正常安裝使用中….</p>
+    <title>git LFS上傳大型檔案</title>
+    <url>/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我有一份自己紀錄的檔案夾…當時並沒有使用 git<br>長年累積之下, 總會有某些檔案超過 git 上傳限制的狀況<br>紀錄一下我是怎麼解決的  </p>
+</br>
+
+<h2 id="git-LFS"><a href="#git-LFS" class="headerlink" title="git LFS"></a>git LFS</h2><p>Git LFS (Large File Storage）, 反正把他理解為幫助上傳大檔案的工具<br>在以前可能需要另外再自行安裝<br>但現在的 git for windows 應該都已經內建</p>
+</br>
+
+<h2 id="操作歷程"><a href="#操作歷程" class="headerlink" title="操作歷程"></a>操作歷程</h2><h3 id="第一步-一樣要先在-Github-建立好你的-Repository"><a href="#第一步-一樣要先在-Github-建立好你的-Repository" class="headerlink" title="第一步, 一樣要先在　Github 建立好你的 Repository"></a>第一步, 一樣要先在　Github 建立好你的 Repository</h3><p><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/new.jpg" alt="new repository"></p>
+<h3 id="第二步-在檔案夾-git-init"><a href="#第二步-在檔案夾-git-init" class="headerlink" title="第二步, 在檔案夾 git init"></a>第二步, 在檔案夾 git init</h3><p>並指定好 remote push 的位置<br>參考建立新 repository 時, github 提供的參考指令<br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/sample.jpg" alt="sample"></p>
+<h3 id="第三步-設置-LFS"><a href="#第三步-設置-LFS" class="headerlink" title="第三步, 設置 LFS"></a>第三步, 設置 LFS</h3><ol>
+<li>sudo apt install git-lfs – 可略</li>
+<li>git lfs install – 可略<br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/lfs.jpg" alt="lfs"></li>
+<li>git lfs track “*.副檔名”  (設置甚麼檔案要交由 git LFS 管理)</li>
+</ol>
+<p>也可以用 gui 完成, 補上 git gui 操作畫面<br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/fork1.jpg" alt="1"><br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/fork2.jpg" alt="2"><br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/fork3.jpg" alt="3"></p>
+<p>接下來</p>
+<h3 id="第四步-跟原先git-一樣"><a href="#第四步-跟原先git-一樣" class="headerlink" title="第四步, 跟原先git 一樣"></a>第四步, 跟原先git 一樣</h3><p>愉快的正常的使用<br>git add xxx<br>git commit -m “something…”<br>git push orgin master  – 根據要推送的分支自行調整</p>
+<p>以上..使用 git or git gui 都可以愉悅地完成上傳大型檔案的需求</p>
+</br>
+</br>
+
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>Git LFS 是有限制的, 附上 <a href="https://docs.github.com/en/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage">Github文件說明</a></p>
+<p>如果真的真的有需求…<br>也可以到 Settings - Bills and plans<br>找到 Git LFS Data 相關的文件, 以及升級方案(美金5 &#x2F; 50GB &#x2F; 1 month)<br>不過用到的人應該不多吧?</p>
 ]]></content>
       <categories>
-        <category>npm</category>
+        <category>github</category>
       </categories>
       <tags>
-        <tag>nvm</tag>
-        <tag>npm</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -260,39 +293,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       <categories>
         <category>docker</category>
       </categories>
-  </entry>
-  <entry>
-    <title>git LFS上傳大型檔案</title>
-    <url>/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我有一份自己紀錄的檔案夾…當時並沒有使用 git<br>長年累積之下, 總會有某些檔案超過 git 上傳限制的狀況<br>紀錄一下我是怎麼解決的  </p>
-</br>
-
-<h2 id="git-LFS"><a href="#git-LFS" class="headerlink" title="git LFS"></a>git LFS</h2><p>Git LFS (Large File Storage）, 反正把他理解為幫助上傳大檔案的工具<br>在以前可能需要另外再自行安裝<br>但現在的 git for windows 應該都已經內建</p>
-</br>
-
-<h2 id="操作歷程"><a href="#操作歷程" class="headerlink" title="操作歷程"></a>操作歷程</h2><h3 id="第一步-一樣要先在-Github-建立好你的-Repository"><a href="#第一步-一樣要先在-Github-建立好你的-Repository" class="headerlink" title="第一步, 一樣要先在　Github 建立好你的 Repository"></a>第一步, 一樣要先在　Github 建立好你的 Repository</h3><p><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/new.jpg" alt="new repository"></p>
-<h3 id="第二步-在檔案夾-git-init"><a href="#第二步-在檔案夾-git-init" class="headerlink" title="第二步, 在檔案夾 git init"></a>第二步, 在檔案夾 git init</h3><p>並指定好 remote push 的位置<br>參考建立新 repository 時, github 提供的參考指令<br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/sample.jpg" alt="sample"></p>
-<h3 id="第三步-設置-LFS"><a href="#第三步-設置-LFS" class="headerlink" title="第三步, 設置 LFS"></a>第三步, 設置 LFS</h3><ol>
-<li>sudo apt install git-lfs – 可略</li>
-<li>git lfs install – 可略<br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/lfs.jpg" alt="lfs"></li>
-<li>git lfs track “*.副檔名”  (設置甚麼檔案要交由 git LFS 管理)</li>
-</ol>
-<p>也可以用 gui 完成, 補上 git gui 操作畫面<br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/fork1.jpg" alt="1"><br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/fork2.jpg" alt="2"><br><img src="/blog/2023/02/03/git-%E4%B8%8A%E5%82%B3%E5%A4%A7%E5%9E%8B%E6%AA%94%E6%A1%88/fork3.jpg" alt="3"></p>
-<p>接下來</p>
-<h3 id="第四步-跟原先git-一樣"><a href="#第四步-跟原先git-一樣" class="headerlink" title="第四步, 跟原先git 一樣"></a>第四步, 跟原先git 一樣</h3><p>愉快的正常的使用<br>git add xxx<br>git commit -m “something…”<br>git push orgin master  – 根據要推送的分支自行調整</p>
-<p>以上..使用 git or git gui 都可以愉悅地完成上傳大型檔案的需求</p>
-</br>
-</br>
-
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>Git LFS 是有限制的, 附上 <a href="https://docs.github.com/en/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage">Github文件說明</a></p>
-<p>如果真的真的有需求…<br>也可以到 Settings - Bills and plans<br>找到 Git LFS Data 相關的文件, 以及升級方案(美金5 &#x2F; 50GB &#x2F; 1 month)<br>不過用到的人應該不多吧?</p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
   </entry>
   <entry>
     <title>LAB-NET7 Serilog 練習</title>
