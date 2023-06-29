@@ -1,32 +1,254 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>建立 docker 映像檔 | 隨手筆記</title><meta name="author" content="Yisu"><meta name="copyright" content="Yisu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="dotnet app 打包成 docker image 的簡單紀錄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="建立 docker 映像檔">
+<meta property="og:url" content="https://yisuchen.github.io/blog/2023/03/01/%E5%BB%BA%E7%AB%8B-docker-%E6%98%A0%E5%83%8F%E6%AA%94/index.html">
+<meta property="og:site_name" content="隨手筆記">
+<meta property="og:description" content="dotnet app 打包成 docker image 的簡單紀錄">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-03-01T06:29:58.000Z">
+<meta property="article:modified_time" content="2023-03-03T03:35:59.648Z">
+<meta property="article:author" content="Yisu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/blog/img/favicon.png"><link rel="canonical" href="https://yisuchen.github.io/blog/2023/03/01/%E5%BB%BA%E7%AB%8B-docker-%E6%98%A0%E5%83%8F%E6%AA%94/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XKS3YGSLM0"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XKS3YGSLM0');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: {"path":"/blog/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查詢的內容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Yisu","link":"連結: ","source":"來源: 隨手筆記","info":"著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '建立 docker 映像檔',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-03 11:35:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/post/reward', {}, {cache: true})
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/blog/tags/"><div class="headline">標籤</div><div class="length-num">8</div></a><a href="/blog/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/blog/" title="隨手筆記"><span class="site-name">隨手筆記</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜尋</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">建立 docker 映像檔</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-03-01T06:29:58.000Z" title="發表於 2023-03-01 14:29:58">2023-03-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2023-03-03T03:35:59.648Z" title="更新於 2023-03-03 11:35:59">2023-03-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/docker/">docker</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">評論數:</span><span class="disqus-comment-count"><a href="https://yisuchen.github.io/blog/2023/03/01/%E5%BB%BA%E7%AB%8B-docker-%E6%98%A0%E5%83%8F%E6%AA%94/#disqus_thread"><i class="fa-solid fa-spinner fa-spin"></i></a></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>簡單紀錄一下打包成 docker image 的過程</p>
+<h2 id="使用環境"><a href="#使用環境" class="headerlink" title="使用環境"></a>使用環境</h2><p>Docker Desktop<br>dotnet 7<br>Windows 10</p>
+<h2 id="開始建立"><a href="#開始建立" class="headerlink" title="開始建立"></a>開始建立</h2><p>建立 dotnet 7 程式</p>
+<ol>
+<li><p>找到喜愛的位置, 創建一個資料夾</p>
+</li>
+<li><p>建立專案, 此處使用 dotnet 內建專案範本<br><code>Dotnet new mvc -o DockerTesting</code></p>
+</li>
+<li><p>進入專案資料夾<br><code>cd DockerTesting</code></p>
+</li>
+<li><p>Build 專案, or publish Release , 我選擇直接 publish release<br><code>dotnet publish -c Release</code><br>完成後, 專案資料夾 bin 內 , 會有 Release 資料夾</p>
+</li>
+<li><p>建立 dockerfile , 將程式容器化的依據(裝進 docker)<br>回到專案目錄, 建立 dockerfile 的文件檔(無副檔名)<br>指令 Powershell : <code>New-Item dockerfile</code><br>也可以在畫面操作 (隨意, 只要能建立檔案就好)</p>
+</li>
+<li><p>撰寫 dockerfile<br>a. 選擇基礎映像檔, 此處選擇微軟 NET 7<br><code>FROM mcr.microsoft.com/dotnet/aspnet:7.0</code><br>b. 指定工作目錄<br><code>WORKDIR /app</code><br>c. 複製應用程式到 映像檔中 (需要的東西都一併 copy 過去)<br><code>COPY ./bin/Release/net7.0/publish .</code>   (此處指定上面專案 publish release 的檔案)<br><code>COPY ./wwwroot ./wwwroot</code><br>執行指令, 當容器啟動, 就會執行, 此行命令結束, 容器就停止<br>d. <code>ENTRYPOINT [&quot;dotnet&quot;, &quot;DockerTesting.dll&quot;]</code><br>e. 存檔, 並退出編輯文件</p>
+</li>
+</ol>
+<p>完整dockerfile</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> mcr.microsoft.com/dotnet/aspnet:<span class="number">7.0</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> ./bin/Release/net7.0/publish .</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> ./wwwroot ./wwwroot</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;dotnet&quot;</span>, <span class="string">&quot;DockerTesting.dll&quot;</span>]</span></span><br></pre></td></tr></table></figure>
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+<ol>
+<li><p>建立映像檔<br><code>docker build -t docker_test:1 .</code><br>-t 映像檔的 tag 名稱<br>-f 可以指定 dockerfile 的路徑<br>最後的 .  表示當前目錄</p>
+</li>
+<li><p>確認映像檔, 應該可以看到剛剛建立的映象檔<br><code>Docker images</code></p>
+</li>
+<li><p>執行 docker<br><code>docker run -it -p 9487:80 docker_test:1</code><br>-it 進入容器, 也可以背景執行就好, 詳情找文件<br>-p 設定對應的 port,   容器內 port : 本機 port<br>並選擇要運行的 image</p>
+</li>
+<li><p>查看是否正常運作<br><code>&lt;http://localhost:9487/&gt;</code></p>
+</li>
+</ol>
+<p> 後續…就是要怎麼使用容器的問題了<br> 紀錄第一次容器化的使用經驗</p>
+<h3 id="額外補充"><a href="#額外補充" class="headerlink" title="額外補充"></a>額外補充</h3><p>dockerfile 步驟說明: (form GPT)</p>
+<ol>
+<li>選擇基礎映像檔：通常基礎映像檔是一個操作系統的最小版本，例如 Ubuntu、Alpine、CentOS 等。基礎映像檔的選擇應根據你的應用程式的需求來決定。</li>
+<li>安裝依賴項：在基礎映像檔之上，安裝需要的依賴項，例如程式庫、框架、語言等等。</li>
+<li>設置環境變數：設置環境變數，例如端口號、資料庫名稱等等。</li>
+<li>複製應用程式程式碼：將應用程式程式碼從本機複製到映像檔內，並設置適當的權限。</li>
+<li>執行應用程式：設置容器啟動時需要執行的命令，例如啟動服務、執行測試等等。</li>
+<li>容器暴露的端口號：如果應用程式需要暴露端口，則在 Dockerfile 中設置端口號。</li>
+<li>容器入口點：設置容器啟動時需要執行的命令。</li>
+</ol>
+<p>其他 GPT 提醒的注意事項</p>
+<p> • 避免使用最新版本的基礎映像檔，因為這可能會導致依賴項不兼容。<br> • 避免在同一個 RUN 命令中執行多個命令，因為這可能會增加映像檔的大小。<br> • 使用 .dockerignore 檔案來忽略不必要的檔案和目錄，這有助於減小映像檔的大小。<br> • 適時清理不需要的文件和暫存文件，這有助於減小映像檔的大小。</p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p><a target="_blank" rel="noopener" href="https://github.com/lab-source/lab_dotnet_docker">範例程式碼</a></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yisu</div><div class="author-info__description">要不要來一杯咖啡?</div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/blog/tags/"><div class="headline">標籤</div><div class="length-num">8</div></a><a href="/blog/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yisuchen" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">傷眼小心</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%92%B0%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">使用環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E5%BB%BA%E7%AB%8B"><span class="toc-number">3.</span> <span class="toc-text">開始建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%8D%E5%A4%96%E8%A3%9C%E5%85%85"><span class="toc-number">3.1.</span> <span class="toc-text">額外補充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">範例</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By Yisu</div><div class="footer_custom_text">一杯咖啡不能解決，那就來第二杯</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直達評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  const disqus_config = function () {
+    this.page.url = 'https://yisuchen.github.io/blog/2023/03/01/%E5%BB%BA%E7%AB%8B-docker-%E6%98%A0%E5%83%8F%E6%AA%94/'
+    this.page.identifier = '/blog/2023/03/01/%E5%BB%BA%E7%AB%8B-docker-%E6%98%A0%E5%83%8F%E6%AA%94/'
+    this.page.title = '建立 docker 映像檔'
+  }
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+  const disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
-      
+  btf.addModeChange('disqus', disqusReset)
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-yisuchen-github-io-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>if (window.DISQUSWIDGETS === undefined) {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://https-yisuchen-github-io-blog.disqus.com/count.js';
+  s.id = 'dsq-count-scr';
+  (d.head || d.body).appendChild(s);
+} else {
+  DISQUSWIDGETS.getCount({reset: true});
+}</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料庫載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/blog/js/search/local-search.js"></script></div></div></body></html>
