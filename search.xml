@@ -8,7 +8,7 @@
 <h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><p>npm init -y<br>npm install jest –save-dev (jest 只需要在開發環境)<br><img src="/blog/2022/10/20/jest-quick-start/version.jpg"><br>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/error.jpg"></p>
 <p>接下來切換 node 版本 14.15.0</p>
 <h2 id="cmd-1"><a href="#cmd-1" class="headerlink" title="cmd:"></a>cmd:</h2><p>npx jest<br><img src="/blog/2022/10/20/jest-quick-start/run.jpg"></p>
-<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#106;&#x65;&#x73;&#x74;&#x40;&#x32;&#x36;&#x2e;&#54;&#x2e;&#51;">&#106;&#x65;&#x73;&#x74;&#x40;&#x32;&#x36;&#x2e;&#54;&#x2e;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
+<h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3><p>一開始還傻傻的搜尋 error 是什麼原因, 後來嘗試切換版本<br>發現可以執行…<br>如果真的要使用舊版本的 node 執行 jest<br>應該查看版本 release 資訊, 找尋跟 node 版本時間相近的去安裝<br><a href="https://www.npmjs.com/package/jest/v/26.6.3">https://www.npmjs.com/package/jest/v/26.6.3</a><br>(npm i <a href="mailto:&#x6a;&#x65;&#115;&#116;&#x40;&#x32;&#x36;&#x2e;&#x36;&#x2e;&#51;">&#x6a;&#x65;&#115;&#116;&#x40;&#x32;&#x36;&#x2e;&#x36;&#x2e;&#51;</a>)<br>沒指定版本的狀況下&#x3D;安裝最新版<br>當然就有套件依賴性的問題</p>
 <h2 id="以上菜鳥發傻記-第一回-結束"><a href="#以上菜鳥發傻記-第一回-結束" class="headerlink" title="以上菜鳥發傻記 第一回 結束"></a>以上菜鳥發傻記 第一回 結束</h2><h4 id="參考"><a href="#參考" class="headerlink" title="參考:"></a>參考:</h4><p><a href="https://jestjs.io/">https://jestjs.io/</a><br><a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
 ]]></content>
       <categories>
@@ -16,6 +16,44 @@
       </categories>
       <tags>
         <tag>jest</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初識 JWT</title>
+    <url>/blog/2022/11/16/%E5%88%9D%E8%AD%98-JWT/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因為我竟然不認識 JWT 是甚麼東西<br>所以有了這一篇紀錄, 繼續養成紀錄習慣</p>
+<h2 id="初識-JWT"><a href="#初識-JWT" class="headerlink" title="初識 JWT"></a>初識 JWT</h2><blockquote>
+<p>JWT 重點不在將資料隱藏, 而是確保發出的憑證, 是否有被竄改</p>
+</blockquote>
+<h3 id="JWT-JSON-Web-Tokens-其實就是一種-Token-的形式"><a href="#JWT-JSON-Web-Tokens-其實就是一種-Token-的形式" class="headerlink" title="JWT (JSON Web Tokens) , 其實就是一種 Token 的形式"></a>JWT (JSON Web Tokens) , 其實就是一種 Token 的形式</h3><h4 id="規範參考"><a href="#規範參考" class="headerlink" title="規範參考"></a>規範參考</h4><ol>
+<li>JWS : JSON Web Signature         <a href="https://www.rfc-editor.org/rfc/rfc7515">RFC 7515</a>      定義製作有”簽章的”</li>
+<li>JWE :  JSON Web Encryption       <a href="https://www.rfc-editor.org/rfc/rfc7516">RFC 7516</a>      定義”內容加密”</li>
+<li>JWK : JSON Web Key               <a href="https://www.rfc-editor.org/rfc/rfc7517">RFC 7517</a>      金鑰的格式與演算</li>
+<li>JWA : JSON Web Algorithms        <a href="https://www.rfc-editor.org/rfc/rfc7518">RFC 7518</a>      金鑰的格式與演算</li>
+<li>JWT : JSON Web Tokens            <a href="https://www.rfc-editor.org/rfc/rfc7519">RFC 7519</a>      定義 Header , Payload 與協定的相關規範<br>可以說 JWT 屬於規範, 而 JWS 與 JWE 像是實作</li>
+</ol>
+<blockquote>
+<p>目前接觸到的情況, 大部分說 JWT 指的就是 JWS</p>
+</blockquote>
+<h3 id="JWT-格式"><a href="#JWT-格式" class="headerlink" title="JWT 格式"></a>JWT 格式</h3><p>Header:<br>{<br>    “alg” : 演算法, 協定也有訂出適合的演算法  JWS (Section 3.1) , JWE(Section 4.1)<br>    “typ” : “JWT” 通常都是 JWT<br>}<br>JWS Payload:(RFC 7519 有制定格式如下, 但也可以自組)<br>{<br>    “iss” : 發行方<br>    “sub” : 表示夾帶的唯一識別訊息<br>    “aud” : 預期接收者<br>    “exp” : 到期時間<br>    “nbf” : 生效時間<br>    “iat” : 發行時間<br>    “jti” : 唯一識別的 JWT ID<br>}<br>JWS Signature:<br>Signature &#x3D;  演算法 ( secret key, ((Base64(header) + Base64(payload))</p>
+<h4 id="JWE-格式-想了解詳細再查"><a href="#JWE-格式-想了解詳細再查" class="headerlink" title="JWE 格式(想了解詳細再查)"></a>JWE 格式(想了解詳細再查)</h4><p>{<br>    Header<br>    Encrypted Key<br>    Initialization Vector(IV)<br>    Ciphertext<br>    Authentication Tag<br>}</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>基本上就是透過演算法(參考上述的alg), 數位簽章式的驗證, 資料被竄改</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>Oauth 規範中, token 放在 Header 進行傳遞</p>
+<blockquote>
+<p>Auth header : bearer [token]<br>關於 bearer 需要參考規範 <a href="https://www.rfc-editor.org/rfc/rfc6750">RFC 6750</a> 而且需要 TLS 環境</p>
+</blockquote>
+<p>機密或敏感資料不要放 payload</p>
+<blockquote>
+<p>但是實務上要不要跟著規範走…..就看人XD</p>
+</blockquote>
+<p>以上…基本上是隨筆, 有錯誤煩請指正</p>
+]]></content>
+      <categories>
+        <category>newbie</category>
+      </categories>
+      <tags>
+        <tag>JWT</tag>
+        <tag>newbie</tag>
       </tags>
   </entry>
   <entry>
@@ -127,44 +165,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </tags>
   </entry>
   <entry>
-    <title>初識 JWT</title>
-    <url>/blog/2022/11/16/%E5%88%9D%E8%AD%98-JWT/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因為我竟然不認識 JWT 是甚麼東西<br>所以有了這一篇紀錄, 繼續養成紀錄習慣</p>
-<h2 id="初識-JWT"><a href="#初識-JWT" class="headerlink" title="初識 JWT"></a>初識 JWT</h2><blockquote>
-<p>JWT 重點不在將資料隱藏, 而是確保發出的憑證, 是否有被竄改</p>
-</blockquote>
-<h3 id="JWT-JSON-Web-Tokens-其實就是一種-Token-的形式"><a href="#JWT-JSON-Web-Tokens-其實就是一種-Token-的形式" class="headerlink" title="JWT (JSON Web Tokens) , 其實就是一種 Token 的形式"></a>JWT (JSON Web Tokens) , 其實就是一種 Token 的形式</h3><h4 id="規範參考"><a href="#規範參考" class="headerlink" title="規範參考"></a>規範參考</h4><ol>
-<li>JWS : JSON Web Signature         <a href="https://www.rfc-editor.org/rfc/rfc7515">RFC 7515</a>      定義製作有”簽章的”</li>
-<li>JWE :  JSON Web Encryption       <a href="https://www.rfc-editor.org/rfc/rfc7516">RFC 7516</a>      定義”內容加密”</li>
-<li>JWK : JSON Web Key               <a href="https://www.rfc-editor.org/rfc/rfc7517">RFC 7517</a>      金鑰的格式與演算</li>
-<li>JWA : JSON Web Algorithms        <a href="https://www.rfc-editor.org/rfc/rfc7518">RFC 7518</a>      金鑰的格式與演算</li>
-<li>JWT : JSON Web Tokens            <a href="https://www.rfc-editor.org/rfc/rfc7519">RFC 7519</a>      定義 Header , Payload 與協定的相關規範<br>可以說 JWT 屬於規範, 而 JWS 與 JWE 像是實作</li>
-</ol>
-<blockquote>
-<p>目前接觸到的情況, 大部分說 JWT 指的就是 JWS</p>
-</blockquote>
-<h3 id="JWT-格式"><a href="#JWT-格式" class="headerlink" title="JWT 格式"></a>JWT 格式</h3><p>Header:<br>{<br>    “alg” : 演算法, 協定也有訂出適合的演算法  JWS (Section 3.1) , JWE(Section 4.1)<br>    “typ” : “JWT” 通常都是 JWT<br>}<br>JWS Payload:(RFC 7519 有制定格式如下, 但也可以自組)<br>{<br>    “iss” : 發行方<br>    “sub” : 表示夾帶的唯一識別訊息<br>    “aud” : 預期接收者<br>    “exp” : 到期時間<br>    “nbf” : 生效時間<br>    “iat” : 發行時間<br>    “jti” : 唯一識別的 JWT ID<br>}<br>JWS Signature:<br>Signature &#x3D;  演算法 ( secret key, ((Base64(header) + Base64(payload))</p>
-<h4 id="JWE-格式-想了解詳細再查"><a href="#JWE-格式-想了解詳細再查" class="headerlink" title="JWE 格式(想了解詳細再查)"></a>JWE 格式(想了解詳細再查)</h4><p>{<br>    Header<br>    Encrypted Key<br>    Initialization Vector(IV)<br>    Ciphertext<br>    Authentication Tag<br>}</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>基本上就是透過演算法(參考上述的alg), 數位簽章式的驗證, 資料被竄改</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>Oauth 規範中, token 放在 Header 進行傳遞</p>
-<blockquote>
-<p>Auth header : bearer [token]<br>關於 bearer 需要參考規範 <a href="https://www.rfc-editor.org/rfc/rfc6750">RFC 6750</a> 而且需要 TLS 環境</p>
-</blockquote>
-<p>機密或敏感資料不要放 payload</p>
-<blockquote>
-<p>但是實務上要不要跟著規範走…..就看人XD</p>
-</blockquote>
-<p>以上…基本上是隨筆, 有錯誤煩請指正</p>
-]]></content>
-      <categories>
-        <category>newbie</category>
-      </categories>
-      <tags>
-        <tag>JWT</tag>
-        <tag>newbie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>叮嚀自己的話</title>
     <url>/blog/2023/02/01/%E5%8F%AE%E5%9A%80%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A9%B1/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>為什麼會想寫 blog?<br>起因是覺得同事, 將自己所遇到的困難點, 或者學習到新的技術<br>分享在他自己的 blog 上, 覺得太棒了吧, 造福世人!!  </p>
@@ -186,6 +186,28 @@ public JsonResult LoginTest(AccountTest model)&#123;
         <category>newbie</category>
         <category>to myself</category>
       </categories>
+  </entry>
+  <entry>
+    <title>當 npm install 時 NPM ERR</title>
+    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
+<blockquote>
+<p>npm ERR! Unexpected token ‘.’</p>
+</blockquote>
+<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
+<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
+<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
+<p>以上…原先 npm install something…正常安裝使用中….</p>
+]]></content>
+      <categories>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>npm</tag>
+      </tags>
   </entry>
   <entry>
     <title>git LFS上傳大型檔案</title>
@@ -218,28 +240,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>當 npm install 時 NPM ERR</title>
-    <url>/blog/2023/02/01/%E7%95%B6-npm-install-%E6%99%82-NPM-ERR/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當我使用 nvm 切換 node 高版本並 npm install something…時</p>
-<blockquote>
-<p>npm ERR! Unexpected token ‘.’</p>
-</blockquote>
-<p>先前的解決方式是…因為暫時還不需要用到高版本的 node , 所以降板後使用正常, 就繼續用了<br>但已經遇到 3 次這樣的情況, 所以決定要來根絕這個問題, 避免以後再發生  </p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因?"></a>原因?</h2><p>Google 後發現這是因為 nvm for windows 的問題<br>簡單來說是因為 nvm 與 npm 版本不相容的關係<br>原先我使用的 nvm 版本為 1.1.7…</p>
-<p><a href="https://github.com/coreybutler/nvm-windows/releases">nvm 版本 release 資訊</a></p>
-<h2 id="下載最新-nvm-for-windows-1-1-10"><a href="#下載最新-nvm-for-windows-1-1-10" class="headerlink" title="下載最新 nvm for windows 1.1.10"></a>下載最新 nvm for windows 1.1.10</h2><p>更新 nvm 版本後<br>聽說這一段很重要<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。<br>更新完成之後，務必要透過 nvm uninstall 把先前裝好的 node 移除、再 nvm install 重新安裝。</p>
-<p>想當然的…原先npm instyall -g 的東西也沒了  </p>
-<p>以上…原先 npm install something…正常安裝使用中….</p>
-]]></content>
-      <categories>
-        <category>npm</category>
-      </categories>
-      <tags>
-        <tag>nvm</tag>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -427,41 +427,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </tags>
   </entry>
   <entry>
-    <title>Line Message API</title>
-    <url>/blog/2023/08/21/Line-Message-API/</url>
-    <content><![CDATA[<h2 id="前言-Line-UserId"><a href="#前言-Line-UserId" class="headerlink" title="前言 (Line UserId)"></a>前言 (Line UserId)</h2><p>Line Message API , 顧名思義, 是用來與 Line 介接並操作一些動作的資源<br>在 Line 粉絲團裡, 每個用戶都會有獨立的 Id (UserId)  e.g. U8189cf6745fc0d808977bdb0b9f22995<br>而要特別注意的一點, 這一個 UserId 並不是共享的<br>事實上<br>同一個使用者, 在不同的 Provider 中的 UserId, 皆為不同<br>以下看圖說明 <a href="https://tw.linebiz.com/manual/line-official-account/line-porvider-and-channel-intro/">(文件參考)</a><br><img src="/blog/2023/08/21/Line-Message-API/userId.jpg" alt="Provide / Channel UserId"></p>
-<p>如果把 Provider 以公司來比喻<br>那 UserId 就是公司內, 員工的編號, 假設 A 員工同時在兩個不同公司內工作<br>淺而易見的, UserId(員工編號) 當然不一樣  </p>
-<p>另一個情況, X 集團內有 甲、乙、丙公司<br>今天 B 本來在甲公司上班, 因職務調動, 輾轉到乙、丙公司上班, 但因為同屬 X 集團, 所以他的 UserId 都維持一樣<br>(此處是對 Line UserId 舉例說明幫助快速瞭解, 實際情況可能有所不同, 請謹慎參考)  </p>
-<h2 id="Line-Webhook"><a href="#Line-Webhook" class="headerlink" title="Line Webhook"></a>Line Webhook</h2><p>前幾篇文章 <a href="https://yisuchen.github.io/blog/2023/08/09/Line-Webhook-Event/">Line Webhook Event</a> 有一些 Webhook 的說明<br>這邊再做一下補充 :  </p>
-<p>webhook for 1-by-1 , 群組 或 多人聊天  :<br>    1. Message :  接收訊息 (Text , Image , Video ….共 7 種 message <a href="https://developers.line.biz/en/reference/messaging-api/#message-event">文件</a>)<br>    2. Unsend : 收回訊息<br>    3. Follow : 加為好友 &#x2F; 解除封鎖<br>    4. Unfollow : 封鎖<br>    5. Join :  被邀請至群組或聊天室<br>    6. Leave :  從群組或聊天室被剃除<br>    7. Member join :  用戶加入群組或聊天室<br>    8. Member leave :  用戶離開群組或聊天室<br>    9. Postback :  類似 Webhook , 使用者觸發某項條件, 並夾帶資料回傳回來的事件<br>    10. Video viewing complete :  影片觀看完成</p>
-<p>其餘還有<br>Webhook for Line Things  and Others<br>請參考<a href="https://developers.line.biz/en/docs/messaging-api/receiving-messages/#webhook-event-types">詳細文件</a></p>
-<h2 id="Line-Message-types"><a href="#Line-Message-types" class="headerlink" title="Line Message types"></a>Line Message types</h2><p>webhook 屬於被動接收的部分, 接下來讓我們來看看, 主動發送的部分<br>首先以下 9 種訊息類型 :<br>    1. Text<br>    2. Sticker<br>    3. Image<br>    4. Video<br>    5. Audio<br>    6. Location<br>    7. ImageMap<br>    8. Templete<br>    9. Flex  </p>
-<p>以上這些, 照著官方文件, 填入對應的格式, 基本上沒甚麼問題<br>這邊記錄幾個使用心得  </p>
-<h3 id="ImageMap-Message-文件"><a href="#ImageMap-Message-文件" class="headerlink" title="ImageMap Message (文件)"></a>ImageMap Message <a href="https://developers.line.biz/en/reference/messaging-api/#imagemap-message">(文件)</a></h3><p>測試時我嘗試使用過這個訊息格式, 實際上我根本沒用到, 而且使用的限制或準備也滿花功夫, 基本上我能不使用就不使用<br>應該可以不用花時間研究, 不過這邊也記錄一下使用的小細節</p>
-<ol>
-<li>配置圖片時要準備 240px、300px、460px、700px、1040px 這 5 種 png&#x2F;jpeg 格式的圖片, 但不要有副檔名</li>
-<li>檔名對應尺寸大小 , e.g : 700px 的圖片, 檔名為 ‘700’</li>
-<li>放在同一個資料夾內</li>
-<li>圖片的 url 只需要指到資料夾路徑即可 e.g. : (baseUrl&#x2F;folderName)<br><img src="/blog/2023/08/21/Line-Message-API/ImageMap_Folder.jpg" alt="ImageMap"></li>
-</ol>
-<h3 id="Templete-Message-按鈕、確認、輪播、圖片輪播-文件"><a href="#Templete-Message-按鈕、確認、輪播、圖片輪播-文件" class="headerlink" title="Templete Message (按鈕、確認、輪播、圖片輪播) (文件)"></a>Templete Message (按鈕、確認、輪播、圖片輪播) <a href="https://developers.line.biz/en/reference/messaging-api/#template-messages">(文件)</a></h3><p>如果只需要一些簡單格式, 這一個訊息格式算是非常好用, 但如果需要樣式的自由性<br>推薦研究 Flex Message<br>此處先暫時不討論 Flex Message  </p>
-<h3 id="訊息的共有屬性"><a href="#訊息的共有屬性" class="headerlink" title="訊息的共有屬性"></a>訊息的共有屬性</h3><p>接下來, 我想說說各訊息格式的共有屬性, 我比較少看到有人實作  </p>
-<ol>
-<li><p>Sender<br> 可以更換傳送者的圖像,以及名稱, 假設今天粉絲團負責的客服人員是 A, 就可以切換成 A的圖像以及名稱 (可能讓客戶更有互動的感覺?)<br> <img src="/blog/2023/08/21/Line-Message-API/sender.jpg" alt="Sender"><br> 格式也非常簡單, 以 Text 為範例</p>
- <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;text&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Hello, I am Sender!!&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;sender&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sender Name&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;iconUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sender Icon Url&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Quick Reply<br> 裡面最多可以埋 13 個 Quick Reply Buttons<br> 顧名思義, Buttons…感覺就像點擊了要做甚麼事, 所以可以聯想成 “動作”<br> 先來簡單看個格式範例 :  </p>
- <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;quickReply&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;action&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;imageUrl&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;optional&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;action&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cameraRoll&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Send photo&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;action&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;imageUrl&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;optional&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;action&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;camera&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Open camera&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p> 意思是 items 內可以埋最多 13 個 Quick reply button<br> item type 固定是 action<br> 其中可以改變的是 action type, 共有 7 種 actions 可以使用<br> 1. Postback action<br> 2. Message action<br> 3. URI action<br> 4. Datetime picker action<br> 5. Camera action<br> 6. Camera roll action<br> 7. Location action<br> 而不同的 action type 有不同的組合方式, 詳情參考 <a href="https://developers.line.biz/en/reference/messaging-api/#message-common-properties">文件</a></p>
-<p> p.s “imageUrl” : 按鈕前方的 icon</p>
-<p> 畫面參考<br> <img src="/blog/2023/08/21/Line-Message-API/quickreply.jpg" alt="QuickReply"></p>
-</li>
-</ol>
-<h2 id="後話"><a href="#後話" class="headerlink" title="後話"></a>後話</h2><p>Action 是個滿重要的東西, 跟使用者互動性,都需要它, 使用的範圍也很廣, 他就像組件一樣<br>可以放在訊息裡發送, 圖文選單、QuickReply 點擊<br>也會因為放在不同的地方, 使用的方式也不同, 或許還有一些限定條件<br>這時候記得好好查閱文件  </p>
-]]></content>
-  </entry>
-  <entry>
     <title>Line Sticker 小心得</title>
     <url>/blog/2023/08/15/Line-Sticker-%E5%B0%8F%E5%BF%83%E5%BE%97/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這篇應該沒甚麼內容, 簡單做個紀錄</p>
@@ -491,28 +456,6 @@ public JsonResult LoginTest(AccountTest model)&#123;
       </categories>
       <tags>
         <tag>Line</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>設置本地端 gitignore (全域)</title>
-    <url>/blog/2023/03/24/%E8%A8%AD%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%AB%AF-gitignore/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各專案在使用 git 上, 通常都有一份 .gitignore 的檔案<br>忽略一些”不想”, 或是”不需要”被版本控制的檔案  </br></p>
-<p>但在團隊協作專案中, 每個人開發或是慣用工具都不同<br>也因為這些的不同, 會發現有些工具產生了一些奇奇怪怪的檔案<br>但不想汙染團隊的 .gitignore 又不想每次出現礙眼怎麼辦?  </br><br>(個人專案的話, 可以不用繼續往下看了, 反正加進 .gitignore 就對了)</p>
-<h2 id="設置全域-gitignore-對本機所有-git-有效"><a href="#設置全域-gitignore-對本機所有-git-有效" class="headerlink" title="設置全域 .gitignore (對本機所有 git 有效)"></a>設置全域 .gitignore (對本機所有 git 有效)</h2><ol>
-<li>先在你喜歡的路徑創建一個 .your_global_ignore_filename</li>
-<li>設置 git 全域忽略</li>
-<li>跟專案內的 .gitignore 一樣, 將想要忽略的路徑編寫在檔案中</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.excludesfile 你喜歡的路徑/.your_global_ignore_filename</span><br></pre></td></tr></table></figure>
-
-<p>灑花! 完成!</br></p>
-<p>這一篇很短沒錯. 但就是因為很短很簡單. 而且可能只會做一次的動作<br>所以就…必須忘記 才有這一篇, 順便有個紀錄以後可以查詢</p>
-<h2 id="其他有的沒的相關指令紀錄"><a href="#其他有的沒的相關指令紀錄" class="headerlink" title="其他有的沒的相關指令紀錄"></a>其他有的沒的相關指令紀錄</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查詢你設置全域忽略路徑</span><br><span class="line">git config --get core.excludesfile</span><br><span class="line"></span><br><span class="line">// 設定喜好的預設編輯器</span><br><span class="line">git config --global core.editor &quot;vim&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查看有關 git 設定過的配置</span><br><span class="line">git config --list</span><br><span class="line">--global        // 全域的配置</span><br><span class="line">--local         // 本地的配置</span><br><span class="line">--show-origin   // 顯示來源</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -550,5 +493,68 @@ public JsonResult LoginTest(AccountTest model)&#123;
       <tags>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>設置本地端 gitignore (全域)</title>
+    <url>/blog/2023/03/24/%E8%A8%AD%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%AB%AF-gitignore/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>各專案在使用 git 上, 通常都有一份 .gitignore 的檔案<br>忽略一些”不想”, 或是”不需要”被版本控制的檔案  </br></p>
+<p>但在團隊協作專案中, 每個人開發或是慣用工具都不同<br>也因為這些的不同, 會發現有些工具產生了一些奇奇怪怪的檔案<br>但不想汙染團隊的 .gitignore 又不想每次出現礙眼怎麼辦?  </br><br>(個人專案的話, 可以不用繼續往下看了, 反正加進 .gitignore 就對了)</p>
+<h2 id="設置全域-gitignore-對本機所有-git-有效"><a href="#設置全域-gitignore-對本機所有-git-有效" class="headerlink" title="設置全域 .gitignore (對本機所有 git 有效)"></a>設置全域 .gitignore (對本機所有 git 有效)</h2><ol>
+<li>先在你喜歡的路徑創建一個 .your_global_ignore_filename</li>
+<li>設置 git 全域忽略</li>
+<li>跟專案內的 .gitignore 一樣, 將想要忽略的路徑編寫在檔案中</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.excludesfile 你喜歡的路徑/.your_global_ignore_filename</span><br></pre></td></tr></table></figure>
+
+<p>灑花! 完成!</br></p>
+<p>這一篇很短沒錯. 但就是因為很短很簡單. 而且可能只會做一次的動作<br>所以就…必須忘記 才有這一篇, 順便有個紀錄以後可以查詢</p>
+<h2 id="其他有的沒的相關指令紀錄"><a href="#其他有的沒的相關指令紀錄" class="headerlink" title="其他有的沒的相關指令紀錄"></a>其他有的沒的相關指令紀錄</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查詢你設置全域忽略路徑</span><br><span class="line">git config --get core.excludesfile</span><br><span class="line"></span><br><span class="line">// 設定喜好的預設編輯器</span><br><span class="line">git config --global core.editor &quot;vim&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 查看有關 git 設定過的配置</span><br><span class="line">git config --list</span><br><span class="line">--global        // 全域的配置</span><br><span class="line">--local         // 本地的配置</span><br><span class="line">--show-origin   // 顯示來源</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Line Message API</title>
+    <url>/blog/2023/08/21/Line-Message-API/</url>
+    <content><![CDATA[<h2 id="前言-Line-UserId"><a href="#前言-Line-UserId" class="headerlink" title="前言 (Line UserId)"></a>前言 (Line UserId)</h2><p>Line Message API , 顧名思義, 是用來與 Line 介接並操作一些動作的資源<br>在 Line 粉絲團裡, 每個用戶都會有獨立的 Id (UserId)  e.g. U8189cf6745fc0d808977bdb0b9f22995<br>而要特別注意的一點, 這一個 UserId 並不是共享的<br>事實上<br>同一個使用者, 在不同的 Provider 中的 UserId, 皆為不同<br>以下看圖說明 <a href="https://tw.linebiz.com/manual/line-official-account/line-porvider-and-channel-intro/">(文件參考)</a><br><img src="/blog/2023/08/21/Line-Message-API/userId.jpg" alt="Provide / Channel UserId"></p>
+<p>如果把 Provider 以公司來比喻<br>那 UserId 就是公司內, 員工的編號, 假設 A 員工同時在兩個不同公司內工作<br>淺而易見的, UserId(員工編號) 當然不一樣  </p>
+<p>另一個情況, X 集團內有 甲、乙、丙公司<br>今天 B 本來在甲公司上班, 因職務調動, 輾轉到乙、丙公司上班, 但因為同屬 X 集團, 所以他的 UserId 都維持一樣<br>(此處是對 Line UserId 舉例說明幫助快速瞭解, 實際情況可能有所不同, 請謹慎參考)  </p>
+<h2 id="Line-Webhook"><a href="#Line-Webhook" class="headerlink" title="Line Webhook"></a>Line Webhook</h2><p>前幾篇文章 <a href="https://yisuchen.github.io/blog/2023/08/09/Line-Webhook-Event/">Line Webhook Event</a> 有一些 Webhook 的說明<br>這邊再做一下補充 :  </p>
+<p>webhook for 1-by-1 , 群組 或 多人聊天  :<br>    1. Message :  接收訊息 (Text , Image , Video ….共 7 種 message <a href="https://developers.line.biz/en/reference/messaging-api/#message-event">文件</a>)<br>    2. Unsend : 收回訊息<br>    3. Follow : 加為好友 &#x2F; 解除封鎖<br>    4. Unfollow : 封鎖<br>    5. Join :  被邀請至群組或聊天室<br>    6. Leave :  從群組或聊天室被剃除<br>    7. Member join :  用戶加入群組或聊天室<br>    8. Member leave :  用戶離開群組或聊天室<br>    9. Postback :  類似 Webhook , 使用者觸發某項條件, 並夾帶資料回傳回來的事件<br>    10. Video viewing complete :  影片觀看完成</p>
+<p>其餘還有<br>Webhook for Line Things  and Others<br>請參考<a href="https://developers.line.biz/en/docs/messaging-api/receiving-messages/#webhook-event-types">詳細文件</a></p>
+<h2 id="Line-Message-types"><a href="#Line-Message-types" class="headerlink" title="Line Message types"></a>Line Message types</h2><p>webhook 屬於被動接收的部分, 接下來讓我們來看看, 主動發送的部分<br>首先以下 9 種訊息類型 :<br>    1. Text<br>    2. Sticker<br>    3. Image<br>    4. Video<br>    5. Audio<br>    6. Location<br>    7. ImageMap<br>    8. Templete<br>    9. Flex  </p>
+<p>以上這些, 照著官方文件, 填入對應的格式, 基本上沒甚麼問題<br>這邊記錄幾個使用心得  </p>
+<h3 id="ImageMap-Message-文件"><a href="#ImageMap-Message-文件" class="headerlink" title="ImageMap Message (文件)"></a>ImageMap Message <a href="https://developers.line.biz/en/reference/messaging-api/#imagemap-message">(文件)</a></h3><p>可以對圖片劃分區塊, 並設定不同的動作, 這邊記錄一下使用的小細節</p>
+<ol>
+<li><p>配置圖片時要準備 240px、300px、460px、700px、1040px 這 5 種 png&#x2F;jpeg 格式的圖片, 但不要有副檔名</p>
+</li>
+<li><p>檔名對應尺寸大小 , e.g : 700px 的圖片, 檔名為 ‘700’</p>
+</li>
+<li><p>放在同一個資料夾內</p>
+</li>
+<li><p>圖片的 url 只需要指到資料夾路徑即可 e.g. : (baseUrl&#x2F;folderName)<br><img src="/blog/2023/08/21/Line-Message-API/ImageMap_Folder.jpg" alt="ImageMap"></p>
+</li>
+<li><p>區塊的劃分要以基底的尺寸來做設定, 例如基底為 1040 x 1040<br> area 劃分的起點位置 (x,y) 以及區塊大小 (width,height)<br> 皆由基底做為標準  </p>
+ <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;baseSize&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;width&quot;</span><span class="punctuation">:</span> <span class="number">1040</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;height&quot;</span><span class="punctuation">:</span> <span class="number">1040</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;actions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uri&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;linkUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://example.com/&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;area&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;x&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;y&quot;</span><span class="punctuation">:</span> <span class="number">586</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;width&quot;</span><span class="punctuation">:</span> <span class="number">520</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;height&quot;</span><span class="punctuation">:</span> <span class="number">454</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="Templete-Message-按鈕、確認、輪播、圖片輪播-文件"><a href="#Templete-Message-按鈕、確認、輪播、圖片輪播-文件" class="headerlink" title="Templete Message (按鈕、確認、輪播、圖片輪播) (文件)"></a>Templete Message (按鈕、確認、輪播、圖片輪播) <a href="https://developers.line.biz/en/reference/messaging-api/#template-messages">(文件)</a></h3><p>如果只需要一些簡單格式, 這一個訊息格式算是非常好用, 但如果需要樣式的自由性<br>推薦研究 Flex Message<br>此處先暫時不討論 Flex Message  </p>
+<h3 id="訊息的共有屬性"><a href="#訊息的共有屬性" class="headerlink" title="訊息的共有屬性"></a>訊息的共有屬性</h3><p>接下來, 我想說說各訊息格式的共有屬性, 我比較少看到有人實作  </p>
+<ol>
+<li><p>Sender<br> 可以更換傳送者的圖像,以及名稱, 假設今天粉絲團負責的客服人員是 A, 就可以切換成 A的圖像以及名稱 (可能讓客戶更有互動的感覺?)<br> <img src="/blog/2023/08/21/Line-Message-API/sender.jpg" alt="Sender"><br> 格式也非常簡單, 以 Text 為範例</p>
+ <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;text&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Hello, I am Sender!!&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;sender&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sender Name&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;iconUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Sender Icon Url&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Quick Reply<br> 裡面最多可以埋 13 個 Quick Reply Buttons<br> 顧名思義, Buttons…感覺就像點擊了要做甚麼事, 所以可以聯想成 “動作”<br> 先來簡單看個格式範例 :  </p>
+ <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;quickReply&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;action&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;imageUrl&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;optional&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;action&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cameraRoll&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Send photo&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;action&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;imageUrl&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;optional&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;action&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;camera&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Open camera&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> 意思是 items 內可以埋最多 13 個 Quick reply button<br> item type 固定是 action<br> 其中可以改變的是 action type, 共有 7 種 actions 可以使用<br> 1. Postback action<br> 2. Message action<br> 3. URI action<br> 4. Datetime picker action<br> 5. Camera action<br> 6. Camera roll action<br> 7. Location action<br> 而不同的 action type 有不同的組合方式, 詳情參考 <a href="https://developers.line.biz/en/reference/messaging-api/#message-common-properties">文件</a></p>
+<p> p.s “imageUrl” : 按鈕前方的 icon</p>
+<p> 畫面參考<br> <img src="/blog/2023/08/21/Line-Message-API/quickreply.jpg" alt="QuickReply"></p>
+</li>
+</ol>
+<h2 id="後話"><a href="#後話" class="headerlink" title="後話"></a>後話</h2><p>此處先暫時不討論 Flex Message , 主要是裡面的東西比較複雜, 一時之間不知道如何說明<br>或許會再下一次的文章中再補充說明<br>另外<br>Action 是個滿重要的東西, 跟使用者互動性,都需要它, 使用的範圍也很廣, 他就像組件一樣<br>可以放在訊息裡發送, 圖文選單、QuickReply 點擊<br>也會因為放在不同的地方, 使用的方式也不同, 或許還有一些限定條件<br>這時候記得好好查閱文件  </p>
+]]></content>
   </entry>
 </search>
